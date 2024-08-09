@@ -4,6 +4,7 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [image, setImage] = useState();
+  const [apiStatus, setApiStatus] = useState();
 
   /**
    * 画像を取得する関数
@@ -13,7 +14,10 @@ function App() {
   const imageFetch = () => {
     fetch('https://dog.ceo/api/breeds/image/random', {method: 'GET'}) 
     .then((response) => response.json())
-    .then((data) => setImage(data.message))
+    .then((data) => {
+      setImage(data.message)
+      setApiStatus(data.status)
+    })
   }
 
   /**
@@ -37,10 +41,12 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div>
+      <div className='imageDetails'>
         <img src={image} alt='dog' />
+        <p className='description'>画像の生成文をここに表示する予定 {apiStatus}</p>
+        <p className='description'>画像の生成を行った人の名前をここに表示する予定 {apiStatus}様寄贈</p>
       </div>
+      {/* <h1>Vite + React</h1> */}
     </>
   )
 }
