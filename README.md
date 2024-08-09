@@ -1,3 +1,10 @@
+# digital-human-app
+
+配信内でChatGPTが生成した画像を表示するためのWebサイト
+2024/08/09 Reactプロジェクトを作成
+
+とりま作成時のテンプレ残す↓(役立つかは知らん)
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
