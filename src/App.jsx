@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // 画像のURLを保持するstate
   const [image, setImage] = useState();
+  // APIの取得ステータスを保持するstate
   const [apiStatus, setApiStatus] = useState();
 
   /**
@@ -44,7 +45,7 @@ function App() {
   return (
     <>
       <div className='imageDetails'>
-        <img src={image} alt='dog' />
+        <img src={image} alt='createdImage' />
         <p className='description'>画像の生成文をここに表示する予定 {apiStatus}</p>
         <p className='description'>画像の生成を行った人の名前をここに表示する予定 {apiStatus}様寄贈</p>
       </div>
