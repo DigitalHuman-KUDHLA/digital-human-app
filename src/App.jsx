@@ -1,33 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from 'react'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  const [image, setImage] = useState();
+
+  /**
+   * 画像を取得する関数
+   * @returns {void}
+   * @description 画像を取得してimageに代入する
+   */
+  const imageFetch = () => {
+    fetch('https://dog.ceo/api/breeds/image/random', {method: 'GET'}) 
+    .then((response) => response.json())
+    .then((data) => setImage(data.message))
+  }
+
+  /**
+   * 初回レンダリング時に画像を取得するためのuseEffect
+   * @returns {void}
+   * @description 初回レンダリング時に画像を取得する
+   */
+  useEffect(() => {
+    imageFetch();
+
+    /**
+     * 一定時間ごとに画像を取得するためのsetInterval
+     * @returns {void}
+     * @description 一定時間ごとに画像を取得する
+     */
+    const interval = setInterval(() => {
+      imageFetch();
+    }, 5000); // 今は一旦5秒間隔に設定
+
+  }, [])
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div>
+        <img src={image} alt='dog' />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
