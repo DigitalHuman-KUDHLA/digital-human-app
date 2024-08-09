@@ -37,6 +37,8 @@ function App() {
       imageFetch();
     }, 5000); // 今は一旦5秒間隔に設定
 
+    return () => clearInterval(interval);
+
   }, [])
 
   return (
