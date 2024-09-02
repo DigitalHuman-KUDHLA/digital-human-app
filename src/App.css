@@ -1,4 +1,11 @@
-#root {
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
+
+div {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -22,4 +29,15 @@ img {
 .description {
   margin-top: 1rem;
   font-size: 1.2rem;
+}
+
+footer {
+  /* position: absolute; */
+  /* positionのオプションをなくすか、
+  position: relativeにするなら、少し違和感感じるかもしれないが実装は可能 */
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  /* background-color: gray; */
+  background-color: lightgray;
 }

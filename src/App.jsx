@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
+import Footer from './Footer';
 
 function App() {
   // 画像のURLを保持するstate
@@ -58,6 +59,7 @@ function App() {
       ))}
       {console.log(images)}
       {/* <h1>Vite + React</h1> */}
+      <Footer />
     </>
   )
 }
