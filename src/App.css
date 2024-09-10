@@ -4,6 +4,9 @@
   padding: 2rem;
   text-align: center;
 } */
+#root {
+  --footer-height: 50px;
+}
 
 div {
   max-width: 1280px;
@@ -26,18 +29,28 @@ img {
 
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .description {
   margin-top: 1rem;
   font-size: 1.2rem;
 }
 
-footer {
-  /* position: absolute; */
-  /* positionのオプションをなくすか、
-  position: relativeにするなら、少し違和感感じるかもしれないが実装は可能 */
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  /* background-color: gray; */
+.copyright {
   background-color: lightgray;
+  text-align: center;
+  padding: 10px 0;
+  height: var(--footer-height);
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.imageDetails {
+  flex: 1;
+  padding-bottom: var(--footer-height);
 }

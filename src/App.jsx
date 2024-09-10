@@ -50,16 +50,18 @@ function App() {
 
   return (
     <>
-      {images.map((output, index) => (
-        <div key={index} className='imageDetails'>
-          <img src={output} alt='createdImage' />
-          <p className='description'>画像の生成文をここに表示する予定</p>
-          <p className='description'>画像の生成を行った人の名前をここに表示する予定</p>
-        </div>
-      ))}
-      {console.log(images)}
-      {/* <h1>Vite + React</h1> */}
-      <Footer />
+      <div className='app'>
+        {images.map((output, index) => (
+          <div key={index} className='imageDetails'>
+            <img src={output} alt='createdImage' />
+            <p className='description'>画像の生成文をここに表示する予定</p>
+            <p className='description'>画像の生成を行った人の名前をここに表示する予定</p>
+          </div>
+        ))}
+        {console.log(images)}
+        {/* <h1>Vite + React</h1> */}
+        <Footer />
+      </div>
     </>
   )
 }
