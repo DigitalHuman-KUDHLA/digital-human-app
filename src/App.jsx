@@ -29,9 +29,9 @@ function App() {
     try {
       const fetchResult = await fetch('https://dog.ceo/api/breeds/image/random', {method: 'GET'});
       const jsonData = await fetchResult.json();
-      await setImages(prevImages => [jsonData.message, ...prevImages]);
-      await setCreatorNames(prevCreatorName => [jsonData.status, ...prevCreatorName]);
-      await setDescriptions(prevDescription => [jsonData.status, ...prevDescription]);
+      await setImages(prevImages => [jsonData.ImageUrl, ...prevImages]);
+      await setCreatorNames(prevCreatorName => [jsonData.Author, ...prevCreatorName]);
+      await setDescriptions(prevDescription => [jsonData.OriginalText, ...prevDescription]);
       await console.log(images);
       await console.log(creatorNames);
       await console.log(descriptions);
