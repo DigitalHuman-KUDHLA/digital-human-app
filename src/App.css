@@ -35,6 +35,15 @@ img {
   min-height: 100vh;
 }
 
+.createdImage {
+  border: 10px solid;
+  border-image: linear-gradient(to right bottom,#e0d9b6,#b4983a) 1  / 10px;
+  outline: 3px outset #efe9cc;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 1px 3px 10px #999;
+}
+
 .description {
   margin-top: 1rem;
   font-size: 1.2rem;
