@@ -7,6 +7,20 @@ function App() {
   const [images, setImages] = useState([]);
 
   /**
+   * 画像生成者の名前を保持するstate
+   * @param {string} creatorName - 画像生成者の名前
+   * @description 画像生成者の名前を保持する
+   */
+  const [creatorNames, setCreatorNames] = useState([]);
+
+  /**
+   * 画像の生成文を保持するstate
+   * @param {string} description - 画像の生成文
+   * @description 画像の生成文を保持する
+   */
+  const [descriptions, setDescriptions] = useState([]);
+
+  /**
    * 画像を取得する関数
    * @returns {void}
    * @description 画像を取得してimagesに保存する
@@ -16,7 +30,11 @@ function App() {
       const fetchResult = await fetch('https://dog.ceo/api/breeds/image/random', {method: 'GET'});
       const jsonData = await fetchResult.json();
       await setImages(prevImages => [jsonData.message, ...prevImages]);
+      await setCreatorNames(prevCreatorName => [jsonData.status, ...prevCreatorName]);
+      await setDescriptions(prevDescription => [jsonData.status, ...prevDescription]);
       await console.log(images);
+      await console.log(creatorNames);
+      await console.log(descriptions);
       console.log(jsonData);
       console.log("成功");
 
@@ -51,16 +69,74 @@ function App() {
   return (
     <>
       <div className='app'>
-        {images.map((output, index) => (
-          <div key={index} className='imageDetails'>
-            <img src={output} alt='createdImage' />
-            <p className='description'>画像の生成文をここに表示する予定</p>
-            <p className='description'>画像の生成を行った人の名前をここに表示する予定</p>
+        {/* <div className='imageDetails'>
+          {images.map((output, index) => (
+            <img key={index} src={output} alt='createdImage' />
+          ))}
+          {descriptions.map((description, index) => (
+            <p key={index} className='description'>画像生成文{description}</p>
+          ))}
+          {creatorNames.map((creatorName, index) => (
+            <p key={index} className='description'>画像生成者{creatorName}</p>
+          ))}
+        </div> */}
+        {/* <div className='imageDetails'>
+          {images.map((image, indexImage) => (
+            <div key={indexImage} className='imageDetails'>
+              <img src={image} alt='createdImage' />
+            {descriptions.map((description, indexDesc) => (
+              <p key={indexDesc} className='description'>画像生成文{description}</p>
+            ))}
+              {creatorNames.map((creatorName, indexCreator) => (
+                <p key={indexCreator} className='description'>画像生成者{creatorName}</p>
+              ))}
+            
+            </div>
+          ))}
+        </div> */}
+        
+        {/* 以下、同じ画像が複数出てしまう */}
+        {/* {images.map((image, indexImage) => (
+          <div key={indexImage} className='imageDetails'>
+            {descriptions.map((description, indexDesc) => (
+              <div key={indexDesc} className='description'>
+                {creatorNames.map((creatorName, indexCreator) => (
+                  <div key={indexCreator} className='description'>
+                    <img src={image} alt='createdImage' />
+                    <p className='description'>画像生成文{description}</p>
+                    <p className='description'>画像生成者{creatorName}</p>
+                  </div>
+                ))}
+              </div>
+            ))}
           </div>
+        ))} */}
+
+        {/* とりあえずこれで各画像1枚だけ出すようにできたからいいかな */}
+        {[images, descriptions, creatorNames].map((array, indexArray) => (
+          // array.map((element, indexElement) => (
+          //   <div key={indexElement} className='imageDetails'>
+          //     <p>array: {array}, indexArray: {indexArray}</p>
+          //     <p>element: {element}, indexElement: {indexElement}</p>
+          //     <img src={images[indexElement]} alt='createdImage' />
+          //     <p className='description'>画像生成文{descriptions[indexElement]}</p>
+          //     <p className='description'>画像生成者{creatorNames[indexElement]}</p>
+          //   </div>
+          // ))
+          array.filter((element, indexElement) => element !== "success").map((element, indexElement) => (
+            <div key={indexElement} className='imageDetails'>
+              <img src={images[indexElement]} alt='createdImage' />
+              <p className='description'>画像生成文{descriptions[indexElement]}</p>
+              <p className='description'>画像生成者{creatorNames[indexElement]}</p>
+            </div>
+          ))
         ))}
-        {console.log(images)}
-        {/* <h1>Vite + React</h1> */}
         <Footer />
+        {console.log(images)}
+        {console.log(creatorNames)}
+        {console.log(descriptions)}
+        {/* <h1>Vite + React</h1> */}
+        
       </div>
     </>
   )
