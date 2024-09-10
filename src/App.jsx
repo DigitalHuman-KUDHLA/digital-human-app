@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Footer from './Footer';
+import Hearder from './Hearder';
 
 function App() {
   // 画像のURLを保持するstate
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <>
+      <Hearder />
       <div className='app'>
         {images.map((output, index) => (
           <div key={index} className='imageDetails'>
