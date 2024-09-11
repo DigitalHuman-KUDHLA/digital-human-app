@@ -6,6 +6,27 @@
 } */
 #root {
   --footer-height: 50px;
+  --hearder-height: 50px;
+}
+
+header {
+  align-items: center;
+  text-align: center;
+  /* padding: 0 0 20px 0; */
+  width: 100%;
+  /* height: var(--hearder-height); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: lightgray;
+  color: #000000;
+
+  /* text-align: center;
+  padding: 10px 0;
+  height: var(--footer-height);
+  width: 100%;
+  position: absolute;
+  left: 0; */
 }
 
 div {
