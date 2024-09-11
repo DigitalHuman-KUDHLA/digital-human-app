@@ -1,7 +1,7 @@
 export const Footer = () => {
     return (
         <footer>
-            <p className="copyright">© 2024 Digital Human</p>
+            <p className="copyright">Copyright © 2024 Digital Human All rights reserved.</p>
         </footer>
     )
 }
