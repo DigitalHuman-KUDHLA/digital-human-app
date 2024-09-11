@@ -1,42 +1,86 @@
+/* #root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+} */
 #root {
+  --footer-height: 50px;
+  --hearder-height: 50px;
+}
+
+header {
+  align-items: center;
+  text-align: center;
+  /* padding: 0 0 20px 0; */
+  width: 100%;
+  /* height: var(--hearder-height); */
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: lightgray;
+  color: #000000;
+
+  /* text-align: center;
+  padding: 10px 0;
+  height: var(--footer-height);
+  width: 100%;
+  position: absolute;
+  left: 0; */
+}
+
+div {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 
+  imgのサイズ調整に関しては、
+  ChatGPTが生成する画像のサイズ次第で
+  変更する。
+  もしChatGPTが生成する画像のサイズが一定なのであれば、
+  それに合わせて調整する
+  そうでない場合は
+  また検討する。
+*/
+img {
+  width: 300px;
+
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.createdImage {
+  border: 10px solid;
+  border-image: linear-gradient(to right bottom,#e0d9b6,#b4983a) 1  / 10px;
+  outline: 3px outset #efe9cc;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 1px 3px 10px #999;
 }
 
-.card {
-  padding: 2em;
+.description {
+  margin-top: 1rem;
+  font-size: 1.2rem;
 }
 
-.read-the-docs {
-  color: #888;
+.copyright {
+  background-color: lightgray;
+  text-align: center;
+  padding: 10px 0;
+  height: var(--footer-height);
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+
+.imageDetails {
+  flex: 1;
+  padding-bottom: var(--footer-height);
 }
