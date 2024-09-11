@@ -1,7 +1,7 @@
 export const Hearder = () => {
     return (
         <header>
-            <h2>デジタルヒューマン</h2>
+            <h2>キュードラのアトリエ</h2>
         </header>
     )
 }
