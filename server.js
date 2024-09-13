@@ -32,12 +32,15 @@ app.post('/api/receive-json', (req, res) => {
     console.log('Received JSON from Unity:', receivedData);
 
     // WebSocketクライアントにデータを送信
-    wss.clients.forEach(client => {
-        if (client.readyState === WebSocketServer.OPEN) {
+    console.log("データ送信前");
+    if (wss.clients.size > 0) {
+        const client = wss.clients.values().next().value;
             client.send(JSON.stringify(receivedData));
+            console.log("データ送信完了");
+        } else {
+            console.log("クライアントが接続されていません");
         }
-    });
-
+        
     res.send({ status: 'success', message: 'JSON received successfully' });
 });
 
