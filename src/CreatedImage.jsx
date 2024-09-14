@@ -75,7 +75,7 @@ export const CreatedImage = () => {
       <p>接続状態: {isConnected ? '接続中' : '切断'}</p>
       {images.map((image, index) => (
         <div key={index} className='imageDetails'>
-          <img src={image} alt='createdImage' />
+          <img src={image} alt='createdImage' className='createdImage' />
           <p className='description'>画像生成文: {descriptions[index]}</p>
           <p className='description'>画像生成者: {creatorNames[index]}</p>
         </div>
